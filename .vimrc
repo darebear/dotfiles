@@ -1,7 +1,6 @@
 " Sample .vimrc file by Martin Brochhaus
 " Presented at PyCon APAC 2012
 
-
 " ============================================
 " Note to myself:
 " DO NOT USE <C-z> FOR SAVING WHEN PRESENTING!
@@ -16,8 +15,8 @@ autocmd! bufwritepost .vimrc source %
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 
-"" set pastetoggle=<F2>
-"" set clipboard=unnamed
+set pastetoggle=<F2>
+set clipboard=unnamed
 
 
 " Mouse and backspace
@@ -52,10 +51,10 @@ let mapleader = ","
 
 " bind Ctrl+<movement> keys to move around the windows, instead of using Ctrl+w + <movement>
 " Every unnecessary keystroke that can be saved is good for your health :)
-"" map <c-j> <c-w>j
-"" map <c-k> <c-w>k
-"" map <c-l> <c-w>l
-"" map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
 
 " easier moving between tabs
@@ -122,10 +121,10 @@ set expandtab
 
 
 " Make search case insensitive
-"" set hlsearch
-"" set incsearch
-"" set ignorecase
-"" set smartcase
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
 
 " Disable stupid backup and swap files - they trigger too many events
@@ -209,10 +208,59 @@ set noswapfile
 "" set nofoldenable
 
 " Adding pathogen.vim
-execute pathogen#infect()
+"execute pathogen#infect()
 
 " Finding word under cursor in all files
 nnoremap gr :grep <cword> *<CR>
 nnoremap Gr :grep <cword> %:p:h/*<CR>
 nnoremap gR :grep '\b<cword>\b' *<CR>
 nnoremap GR :grep '\b<cword>\b' %:p:h/*<CR>
+
+" Session autoloading
+" Creates a session
+function! MakeSession()
+    let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+    if (filewritable(b:sessiondir) != 2)
+        exe 'silent !mkdir -p ' b:sessiondir
+        redraw!
+    endif
+    let b:sessionfile = b:sessiondir . '/session.vim'
+    exe "mksession! " . b:sessionfile
+endfunction
+
+" Updates a session, but only if it already exist"                   
+function! UpdateSession()
+      " updates a session, but only if it already exist"                     
+      let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+      let b:sessionfile = b:sessiondir . "/session.vim"
+      " updates a session, but only if it already exist"                         
+      if (filereadable(b:sessionfile))
+      " updates a session, but only if it already exist"                             
+      exe "mksession! " . b:sessionfile
+      " updates a session, but only if it already exist"                                 
+      echo "updating session"
+  endif
+endfunction
+
+" Loads a session if it exists
+function! LoadSession()
+    if argc() == 0
+        let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+        let b:sessionfile = b:sessiondir . "/session.vim"
+        if (filereadable(b:sessionfile))
+            exe 'source ' b:sessionfile
+        else
+            echo "No session loaded."
+        endif
+    else
+        let b:sessionfile = ""
+        let b:sessiondir = ""
+    endif
+endfunction
+
+au VimEnter * nested :call LoadSession()
+au VimLeave * :call UpdateSession()
+map <leader>m :call MakeSession()<CR>
+
+:ab #b /****************************************
+:ab #e ^V^H*****************************************/

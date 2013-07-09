@@ -130,3 +130,6 @@ set -o vi
 # clear the screen
 bind -m vi-insert '"\C-l":clear-screen'
 bind -m vi-command '",l":clear-screen'
+
+# turn off SSL certificate check for GIT
+export GIT_SSL_NO_VERIFY=1
