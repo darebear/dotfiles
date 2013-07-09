@@ -8,7 +8,7 @@
 
 
 " Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+" autocmd! bufwritepost .vimrc source %
 
 
 " Better copy & paste
@@ -33,9 +33,9 @@ let mapleader = ","
 " Bind nohl
 " Removes highlight of your last search
 " ``<C>`` stands for ``CTRL`` and therefore ``<C-n>`` stands for ``CTRL+n``
-"" noremap <C-n> :nohl<CR>
-"" vnoremap <C-n> :nohl<CR>
-"" inoremap <C-n> :nohl<CR>
+noremap <C-n> :nohl<CR>
+vnoremap <C-n> :nohl<CR>
+inoremap <C-n> :nohl<CR>
 
 
 " Quicksave command
@@ -55,6 +55,12 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+" for moving the windows
+"map <c-J> <c-w>J
+"map <c-K> <c-w>K
+"map <c-L> <c-w>L
+"map <c-H> <c-w>H
 
 
 " easier moving between tabs
