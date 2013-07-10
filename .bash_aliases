@@ -16,3 +16,6 @@ alias grep='grep --color=auto --exclude-dir=\.svn'
 
 # Gnome layout shortcuts
 alias gnome-gpio='gnome-terminal --load-config=/personal/config/gnome-gpio'
+
+# Vim aliases
+alias vim-current='cd ~/research/aquapod/git/gumstix/ && vim'
