@@ -66,14 +66,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +558 main.cpp
-badd +192 reduced_control.c
-badd +67 include/reduced_cmd_set.h
-badd +76 include/reduced_control.h
-badd +67 ../pic/include/control.h
-badd +54 ../pic/include/commandSet.h
+badd +0 main.cpp
+badd +0 reduced_control.c
+badd +0 include/reduced_cmd_set.h
 args main.cpp
-edit reduced_control.c
+edit main.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -87,11 +84,11 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
-exe '2resize ' . ((&lines * 33 + 34) / 69)
-exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 33 + 34) / 69)
-exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
+exe 'vert 1resize ' . ((&columns * 109 + 110) / 220)
+exe '2resize ' . ((&lines * 32 + 33) / 66)
+exe 'vert 2resize ' . ((&columns * 110 + 110) / 220)
+exe '3resize ' . ((&lines * 31 + 33) / 66)
+exe 'vert 3resize ' . ((&columns * 110 + 110) / 220)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -122,8 +119,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'c'
-setlocal filetype=c
+if &filetype != 'cpp'
+setlocal filetype=cpp
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -181,8 +178,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
-if &syntax != 'c'
-setlocal syntax=c
+if &syntax != 'cpp'
+setlocal syntax=cpp
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -194,12 +191,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 281 - ((0 * winheight(0) + 33) / 67)
+let s:l = 400 - ((21 * winheight(0) + 32) / 64)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-281
-normal! 08l
+400
+normal! 031l
 wincmd w
 argglobal
 edit include/reduced_cmd_set.h
@@ -304,15 +301,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 95 - ((14 * winheight(0) + 16) / 33)
+let s:l = 97 - ((31 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-95
-normal! 022l
+97
+normal! 0
 wincmd w
 argglobal
-edit ../pic/include/commandSet.h
+edit reduced_control.c
 setlocal keymap=
 setlocal noarabic
 setlocal noautoindent
@@ -342,8 +339,8 @@ setlocal nodiff
 setlocal equalprg=
 setlocal errorformat=
 setlocal expandtab
-if &filetype != 'cpp'
-setlocal filetype=cpp
+if &filetype != 'c'
+setlocal filetype=c
 endif
 setlocal foldcolumn=0
 setlocal foldenable
@@ -401,8 +398,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal noswapfile
 setlocal synmaxcol=3000
-if &syntax != 'cpp'
-setlocal syntax=cpp
+if &syntax != 'c'
+setlocal syntax=c
 endif
 setlocal tabstop=4
 setlocal tags=
@@ -414,19 +411,18 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 16) / 33)
+let s:l = 286 - ((9 * winheight(0) + 15) / 31)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+286
+normal! 04l
 wincmd w
-3wincmd w
-exe 'vert 1resize ' . ((&columns * 119 + 119) / 239)
-exe '2resize ' . ((&lines * 33 + 34) / 69)
-exe 'vert 2resize ' . ((&columns * 119 + 119) / 239)
-exe '3resize ' . ((&lines * 33 + 34) / 69)
-exe 'vert 3resize ' . ((&columns * 119 + 119) / 239)
+exe 'vert 1resize ' . ((&columns * 109 + 110) / 220)
+exe '2resize ' . ((&lines * 32 + 33) / 66)
+exe 'vert 2resize ' . ((&columns * 110 + 110) / 220)
+exe '3resize ' . ((&lines * 31 + 33) / 66)
+exe 'vert 3resize ' . ((&columns * 110 + 110) / 220)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
