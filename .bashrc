@@ -133,3 +133,9 @@ bind -m vi-command '",l":clear-screen'
 
 # turn off SSL certificate check for GIT
 export GIT_SSL_NO_VERIFY=1
+
+# add hitech picc to PATH (/usr/hitech/picc/9.83/bin)
+PATH="/usr/hitech/picc/9.83/bin:$PATH"
+
+EDITOR=/usr/bin/vim
+export OE_HOME=/home/d/oe

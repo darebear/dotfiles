@@ -267,10 +267,10 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 " for moving the windows
-map <c-J> <c-w>J
-map <c-K> <c-w>K
-map <c-L> <c-w>L
-map <c-H> <c-w>H
+"map <c-J> <c-w>J
+"map <c-K> <c-w>K
+"map <c-L> <c-w>L
+"map <c-H> <c-w>H
 
 
 " bind cn 
@@ -286,3 +286,12 @@ noremap     <leader>g :!git status<CR>
 noremap     <leader>G :!git 
 noremap     <leader>S :!!scp <CR>
 
+" set working directory to match working file
+set autochdir
+
+" Highlight cursor row
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+nnoremap <Leader>c :set cursorline! <CR>
+
+" Change the color of the comment (http://maddox.xmission.com/maddox.vim)
+hi Comment      term=bold  ctermfg=LightBlue guifg=Orange
