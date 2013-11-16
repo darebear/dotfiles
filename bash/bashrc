@@ -151,36 +151,36 @@ export G2=root@192.168.2.2
 # e.g.
 # source build/profile beagleboard
 
-if [ -z "$1" ]
-then
-    export MY_OE_CONF="overo"
-    echo "Using default machine overo"
-else
-    export MY_OE_CONF="$1"
-fi
-
-# OpenEmbedded directory
-export OE_HOME="/home/d/oe"
-export OE_TOP="$OE_HOME"
-
-# Bitbake repositories: OpenEmbedded, project and user overlays
-export OEBRANCH="$OE_HOME/org.openembedded.dev"
-export PROJECTBRANCH="$OE_HOME/pixhawk.collection"
-export USERBRANCH="$OE_HOME/user.collection"
-
-export PATH="$OE_HOME/bitbake/bin:$PATH"
-export BBPATH="$OE_HOME/build:$USERBRANCH:$PROJECTBRANCH:$OEBRANCH"
-
-export BB_ENV_EXTRAWHITE="MACHINE DISTRO ANGSTROM_MODE OE_TOP OE_HOME MY_OE_CONF OEBRANCH PROJECTBRANCH USERBRANCH"
-
-umask 0002
-
-if [ "$PS1" ]; then
-  if [ "$BASH" ]; then
-    export PS1="\[\033[01;32m\]OE:$MY_OE_CONF\[\033[00m\] ${PS1}"
-  fi
-fi
-
+##if [ -z "$1" ]
+#then
+    #export MY_OE_CONF="overo"
+    #echo "Using default machine overo"
+#else
+    #export MY_OE_CONF="$1"
+#fi
+#
+## OpenEmbedded directory
+#export OE_HOME="/home/d/oe"
+#export OE_TOP="$OE_HOME"
+#
+## Bitbake repositories: OpenEmbedded, project and user overlays
+#export OEBRANCH="$OE_HOME/org.openembedded.dev"
+#export PROJECTBRANCH="$OE_HOME/pixhawk.collection"
+#export USERBRANCH="$OE_HOME/user.collection"
+#
+#export PATH="$OE_HOME/bitbake/bin:$PATH"
+#export BBPATH="$OE_HOME/build:$USERBRANCH:$PROJECTBRANCH:$OEBRANCH"
+#
+#export BB_ENV_EXTRAWHITE="MACHINE DISTRO ANGSTROM_MODE OE_TOP OE_HOME MY_OE_CONF OEBRANCH PROJECTBRANCH USERBRANCH"
+#
+#umask 0002
+#
+#if [ "$PS1" ]; then
+  #if [ "$BASH" ]; then
+    #export PS1="\[\033[01;32m\]OE:$MY_OE_CONF\[\033[00m\] ${PS1}"
+  #fi
+#fi
+#
 #
 # utility functions for working with bitbake
 #
