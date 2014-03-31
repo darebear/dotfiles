@@ -219,3 +219,8 @@ export G2=root@192.168.2.2
 #    __get_machine
 #    echo $_MACHINE
 #}
+export PATH="/home/$USER/.genymotion:$PATH"
+
+#Steam libgl.so.1 problem
+#Source: http://askubuntu.com/questions/216367/steam-error-while-loading-shared-libraries-libgl-so-1-wrong-elf-class-elfcla
+export LD_LIBRARY_PATH=/usr/lib32:$LD_LIBRARY_PATH
