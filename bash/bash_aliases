@@ -47,5 +47,5 @@ alias lubuntu='vim ~/.config/openbox/lubuntu-rc.xml'
 alias make-pic='cd ~/research/aquapod/aquapod/pic/aquapod-pic.X/ && make -f nbproject/Makefile-default.mk && cd -'
 alias mkdir='mkdir -p'
 # spring 2014 semesters
-alias csci1113='sudo ~/school/2014/csci1113'
-alias csci1001='sudo ~/school/2014/csci1001'
+alias csci1113='cd ~/school/2014/csci1113'
+alias csci1001='cd ~/school/2014/csci1001'
