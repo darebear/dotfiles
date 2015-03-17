@@ -76,6 +76,7 @@ vnoremap > >gv  " better indentation
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
 filetype off
+filetype plugin on
 filetype plugin indent on
 syntax on
 
@@ -267,22 +268,139 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 
 " for moving the windows
-map <c-J> <c-w>J
-map <c-K> <c-w>K
-map <c-L> <c-w>L
-map <c-H> <c-w>H
+"map <c-J> <c-w>J
+"map <c-K> <c-w>K
+"map <c-L> <c-w>L
+"map <c-H> <c-w>H
 
 
 " bind cn 
 " Progresses through make warnings and errors
-noremap     <tab> :cn<CR>
-vnoremap    <tab> :cn<CR>
+"noremap     <tab> :cn<CR>
+"vnoremap    <tab> :cn<CR>
 
-noremap     <S-tab> :cp<CR>
-vnoremap    <S-tab> :cp<CR>
+"noremap     <S-tab> :cp<CR>
+"vnoremap    <S-tab> :cp<CR>
 
 " bind external commands
-noremap     <leader>g :!git status<CR>
-noremap     <leader>G :!git 
-noremap     <leader>S :!!scp <CR>
+"noremap     <leader>g :!git status<CR>
+"noremap     <leader>G :!git 
+"noremap     <leader>S :!!scp <CR>
 
+" Automatic LaTeX plugin
+syntax on
+filetype plugin on
+filetype indent on
+"
+
+" Vim and Python
+" from (http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/)
+
+"set nocompatible 
+"filetype off
+
+"set rtp+=~/.vim/bundle/vundle
+"call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+"Bundle 'gmarik/vundle'
+
+" The bundles you install will be listed here
+
+"filetype plugin indent on
+
+" The rest of your config follows here
+"
+"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Powerline setup
+"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+"set laststatus=2
+
+map <F2> :NERDTreeToggle<CR>
+
+" Python-mode
+" " Activate rope
+" " Keys:
+" " K             Show python docs
+" " <Ctrl-Space>  Rope autocomplete
+" " <Ctrl-c>g     Rope goto definition
+" " <Ctrl-c>d     Rope show documentation
+" " <Ctrl-c>f     Rope find occurrences
+" " <Leader>b     Set, unset breakpoint (g:pymode_breakpoint enabled)
+" " [[            Jump on previous class or function (normal, visual, operator
+" modes)
+" " ]]            Jump on next class or function (normal, visual, operator
+" modes)
+" " [M            Jump on previous class or method (normal, visual, operator
+" modes)
+" " ]M            Jump on next class or method (normal, visual, operator
+" modes)
+"let g:pymode_rope = 1
+"
+" " Documentation
+"let g:pymode_doc = 1
+"let g:pymode_doc_key = 'K'
+"
+" "Linting
+"let g:pymode_lint = 1
+"let g:pymode_lint_checker = "pyflakes,pep8"
+" " Auto check on save
+"let g:pymode_lint_write = 1
+"
+" Support virtualenv
+"let g:pymode_virtualenv = 1
+"
+" Enable breakpoints plugin
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_key = '<leader>b'
+"
+" syntax highlighting
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"
+" " Don't autofold code
+"let g:pymode_folding = 0
+
+" For jedi-vim
+"let g:pymode_rope = 0
+"
+"
+
+"ASCIIDOC Vim highlighting
+"
+" Use bold bright fonts.
+"set background=dark
+
+" Show tabs and trailing characters.
+"set listchars=tab:»·,trail:·,eol:¬
+"set listchars=tab:»·,trail:·
+"set list
+
+" Reformat paragraphs and list.
+"nnoremap <Leader>r gq}
+
+" Delete trailing white space and Dos-returns and to expand tabs to spaces.
+"nnoremap <Leader>t :set et<CR>:retab!<CR>:%s/[\r \t]\+$//<CR>
+
+autocmd BufRead,BufNewFile *.txt,*.asciidoc,README,TODO,CHANGELOG,NOTES,ABOUT
+    \ setlocal autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2 filetype=asciidoc
+    \ textwidth=70 wrap formatoptions=tcqn
+    \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
+    \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
+
+
+"Markdown syntax tweak
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" should markdown preview get shown automatically upon opening markdown buffer
+let g:livedown_autorun = 0
+
+" should the browser window pop-up upon previewing
+let g:livedown_open = 1 
+
+" the port on which Livedown server will run
+let g:livedown_port = 1337

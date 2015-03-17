@@ -133,3 +133,8 @@ bind -m vi-command '",l":clear-screen'
 
 # turn off SSL certificate check for GIT
 export GIT_SSL_NO_VERIFY=1
+
+
+# aliases
+alias 1133='cd /home/dario/Downloads/git/2015-spring/csci1133/'
+alias ssh-1133='ssh canel011@kh1262-02.cselabs.umn.edu'
