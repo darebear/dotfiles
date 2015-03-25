@@ -1,11 +1,11 @@
-et nocompatible
+set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 
-## from https://github.com/tpope/vim-pathogen
+" from https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
@@ -23,7 +23,7 @@ set synmaxcol=128
 set ttyscroll=10
 set encoding=utf-8
 set tabstop=2
-set nowrap
+"set nowrap
 set number
 set expandtab
 set nowritebackup
@@ -100,3 +100,10 @@ set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
 
 " Quit with :Q
 command -nargs=0 Quit :qa!
+
+" Text wrap
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+set textwidth=80
+set wrapmargin=0
