@@ -1,7 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-
 " from https://github.com/gmarik/Vundle.vim#quick-start"
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -32,6 +31,18 @@ Plugin 'tpope/vim-fugitive'
 
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
+
+" My plugins
+"
+" NerdTREE
+Plugin 'scrooloose/nerdtree'
+" Syntastic (syntax checker)
+Plugin 'scrooloose/syntastic'
+" CtrlP (fuzzy completion) and Rainbow Parentheses
+Plugin 'kien/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+" Awesome complete engine from Valloric
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,7 +75,7 @@ filetype plugin indent on    " required
 "let mapleader=","
 
 set background=dark
-color solarized
+color vividchalk 
 
 set cursorline
 set expandtab
@@ -138,20 +149,20 @@ let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'passive' }
-let g:syntastic_ruby_exec = '~/.rvm/rubies/ruby-2.0.0-p0/bin/ruby'
+"let g:syntastic_ruby_exec = '~/.rvm/rubies/ruby-2.0.0-p0/bin/ruby'
 
 " CtrlP
-nnoremap <silent> t :CtrlP<cr>
-let g:ctrlp_working_path_mode = 2
-let g:ctrlp_by_filename = 1
-let g:ctrlp_max_files = 600
-let g:ctrlp_max_depth = 5
+"nnoremap <silent> t :CtrlP<cr>
+"let g:ctrlp_working_path_mode = 2
+"let g:ctrlp_by_filename = 1
+"let g:ctrlp_max_files = 600
+"let g:ctrlp_max_depth = 5
 
 " Go programming
-set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
+"set rtp+=/usr/local/Cellar/go/1.0.3/misc/vim
 
 " Quit with :Q
-command -nargs=0 Quit :qa!
+"command -nargs=0 Quit :qa!
 
 " Text wrap
 set wrap
