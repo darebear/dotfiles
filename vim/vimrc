@@ -42,7 +42,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim'
 " Awesome complete engine from Valloric
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+
+" Colorschemes
+Plugin 'flazz/color-schemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
